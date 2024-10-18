@@ -10,14 +10,22 @@ The project is designed to make it easier for the restaurant to review past orde
 Requirements:
 Running this script necessitates Python on your system, leaning solely on Python's intrinsic libraries for functionality, thereby negating the need for external package installations.
 
-How It Works
-The project script performs the following tasks:
+Design and Implementation:
+The script's core revolves around parsing a JSON file populated with orders, each detailing a customer's contact information and their selected items. This data is then organized into two separate JSON files—customers.json and items.json—streamlining customer information and item statistics for subsequent analysis or application.
 
-Read Orders: It reads a JSON file (input file) containing the orders and their details.
-Format Phone Numbers: Phone numbers are formatted to a standard format (xxx-xxx-xxxx).
-Process Customer Data: It extracts customer details and formats them into a JSON file.
-Process Item Data: It calculates the total number of orders for each item and stores item prices, creating a summary JSON file.
-Save Results: It writes the extracted customer and item data into two separate JSON files.
+Data Storage Mechanisms:
+
+1)Customers Dictionary: Utilizes phone numbers as unique keys linked to customer names, ensuring direct access to customer data.
+2)Items Dictionary: Employs item names as keys, mapping to sub-dictionaries that record item prices and purchase frequencies, facilitating item data management and updates.
+
+Data Processing Workflow
+JSON Input Management: Leverages Python's json.load() to transform the JSON file into a manipulable Python structure, setting the stage for data iteration.
+Order Iteration: Each order undergoes a twofold analysis:
+1)Customer Data Extraction: Harvests and catalogs customer names and phone numbers in the customers dictionary.
+2)Item Data Compilation: Evaluates each item within an order, initializing or updating its record in the items dictionary based on presence and purchase count.
+
+
+How It Works
 
 The project script consists of the following key functions:
 
